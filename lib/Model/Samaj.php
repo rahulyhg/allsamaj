@@ -7,8 +7,8 @@ class Model_Samaj extends \xepan\base\Model_Table {
 	public $acl_type="Samaj";
 
 	public $actions= [
-				'Active'=>['view','edit','delete','manage_news','manage_event','manage_categories','deactivate'],
-				'InActive'=>['view','edit','delete','manage_news','manage_event','manage_categories','activate'],
+				'Active'=>['view','edit','delete','member_management','manage_news','manage_event','manage_categories','deactivate'],
+				'InActive'=>['view','edit','delete','activate'],
 				];
 
 	function init(){
@@ -52,5 +52,14 @@ class Model_Samaj extends \xepan\base\Model_Table {
 
 		$crud = $page->add('xepan\hr\CRUD');
 		$crud->setModel($categories_model);
+	}
+
+	function page_member_management($page){
+		
+		$member_model = $this->add('xavoc\allsamaj\Model_Member');
+		$member_model->addCondition('samaj_id',$this->id);
+
+		$crud = $page->add('xepan\hr\CRUD');
+		$crud->setModel($member_model);
 	}
 }
