@@ -14,6 +14,11 @@ class Model_City extends \xepan\base\Model_Table {
 		$this->addField('name');
 		$this->hasMany('xavoc\allsamaj\Samaj','city_id');
 
+		$this->is([
+				'name|to_trim|required',
+				'state_id|required',
+			]);
+
 		$this->add('dynamic_model\Controller_AutoCreator');
 	}
 }

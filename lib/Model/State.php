@@ -14,6 +14,11 @@ class Model_State extends \xepan\base\Model_Table {
 		$this->addField('name');
 		$this->hasMany('xavoc\allsamaj\City','state_id');
 
+		$this->is([
+				'name|to_trim|required',
+				'country_id|required',
+			]);
+
 		$this->add('dynamic_model\Controller_AutoCreator');
 
 	}

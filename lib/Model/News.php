@@ -16,6 +16,14 @@ class Model_News extends \xepan\base\Model_Table {
 		$this->addField('content')->type('text')->display(['form'=>'xepan\base\RichText']);
 		$this->addField('date')->type('date');
 
+		$this->is([
+				'name|to_trim|required',
+				'samaj_id|required',
+				'category_id|required',
+				'content|required',
+				'date|required',
+			]);
+
 		$this->add('dynamic_model\Controller_AutoCreator');	
 
 	}
