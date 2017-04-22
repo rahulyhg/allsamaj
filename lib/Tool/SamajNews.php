@@ -16,7 +16,7 @@ class Tool_SamajNews extends \xepan\cms\View_Tool {
 		
 		}
 
-		$news->setModel($samaj_model);
+		$this->setModel($n);
 	}
 
 	function defaultTemplate(){
