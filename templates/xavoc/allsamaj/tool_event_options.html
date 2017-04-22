@@ -1,0 +1,40 @@
+<div id="{$_name}" class="xepan-tool-options" style="display: none" for-xepan-component= "xavoc/allsamaj/Tool_Event">
+	<div class="xepan-cms-group-panel clearfix">
+    <h3 data-toggle="collapse" data-target="#collapse-carousel" aria-expanded="false" class="collapsed"><span>All Events List</span></h3>
+    <div id="collapse-carousel" class="xepan-cms-tools-bar-panel row-fluid collapse in">
+      <div class="panel-body">
+          <table class="table table-condensed table-hover">
+            <tr class="show-text">
+              <div class="xepan-tool-option">
+                <td class="xepan-tool-option-title">Show Image</td>
+                <td class="xepan-tool-option-value"> 
+                  <select id="show_text" data-attr="show_image" data-defaultvalue="true">
+                    <option value="true">Yes</option>
+                    <option value="false">No</option>
+                  </select>
+                </td>
+              </div>
+            </tr>
+            <tr>
+            <td>No Option Define</td>  
+            </tr>
+
+          </table>
+        </div>
+      </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+	
+
+		$('\#{$_name} [data-attr]').on('change',function(){
+			$(current_selected_component).attr($(this).data('attr'),$(this).val());
+		});
+
+		$('\#{$_name}').on('show',function(event){
+			$('\#{$_name} [data-attr]').each(function(index,value){
+				$(this).val($(current_selected_component).attr($(this).data('attr')));				
+			});
+		});
+</script>
