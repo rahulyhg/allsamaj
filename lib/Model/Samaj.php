@@ -19,9 +19,11 @@ class Model_Samaj extends \xepan\base\Model_Table {
 		$this->addField('name');
 		$this->add('xepan/filestore/Field_Image',['name'=>'image_id','deref_field'=>'thumb_url']);
 		$this->addField('status')->enum(['Active','InActive'])->defaultValue('Active');
+		$this->addField('description')->type('text');
+		
 		$this->hasMany('xavoc\allsamaj\News','samaj_id');
 		$this->hasMany('xavoc\allsamaj\Member','samaj_id');
-		$this->hasMany('xavoc\allsamaj\CommitiMember','samaj_id');
+		$this->hasMany('xavoc\allsamaj\Committee','samaj_id');
 		$this->hasMany('xavoc\allsamaj\Event','samaj_id');
 
 		$this->add('dynamic_model\Controller_AutoCreator');

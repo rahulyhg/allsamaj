@@ -1,0 +1,31 @@
+.container(id="{$_name}" class="{$class}" style="{$style}")
+	{$search_form}
+	//- .well.well-sm
+	//- 	strong Display
+	//- 	.btn-group
+	//- 		a#list.btn.btn-default.btn-sm(href='#')
+	//- 			span.glyphicon.glyphicon-th-list
+	//- 			| List
+	//- 		a#grid.btn.btn-default.btn-sm(href='#')
+	//- 			span.glyphicon.glyphicon-th
+	//- 			| Grid
+	{rows}
+	#products.row.list-group
+		{row}
+		div(class=" item col-xs-12 col-lg-{col}4{/}")
+			.thumbnail
+				img.group.list-group-image(src='{image}http://placehold.it/400x250/000/fff{/}', alt='' style="width:100%")
+				.caption
+					h4.group.inner.list-group-item-heading.text-center
+						a(href="?page={$detail_url_page}&samaj_id={$id}") {name}Product Title{/}
+					
+					.row
+						.col-xs-12.col-md-12
+							p.lead.group.inner.list-group-item-text
+								| {description}Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+								| sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.{/}
+						//- .col-xs-12.col-md-6
+						//- 	a.btn.btn-success(href='http://www.jquery2dotnet.com') read more
+		{/}					
+	{/}	
+	{$paginator}					

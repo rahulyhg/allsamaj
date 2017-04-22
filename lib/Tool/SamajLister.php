@@ -21,8 +21,12 @@ class Tool_SamajLister extends \xepan\cms\View_Tool {
 		$lister = $this->add('CompleteLister',null,null,['view/samajlister']);
 		
 		if($this->options['show_search_bar']){
-			$f = $lister->add('Form',null,'search_form');
+			$f = $lister->add('Form',null,'search_form');;
+			$f->setLayout(['view/serchform']);
 			$f->addField('line','search');
+
+			$f->addSubmit(' ')->addClass(' btn btn-default glyphicon  glyphicon-search');
+
 		}else{
 			$lister->template->tryDel('search_form');
 		}	
