@@ -1,0 +1,65 @@
+<div id="{$_name}" class="xepan-tool-options" style="display: none" for-xepan-component= "xavoc/allsamaj/Tool_SamajNews">
+	<div class="xepan-cms-group-panel clearfix">
+    <h3 data-toggle="collapse" data-target="#collapse-carousel" aria-expanded="false" class="collapsed"><span>All Samaj News</span></h3>
+    <div id="collapse-carousel" class="xepan-cms-tools-bar-panel row-fluid collapse in">
+      <div class="panel-body">
+          <table class="table table-condensed table-hover">
+            
+            <tr>
+              <td>
+                Show No of Row
+              </td>
+              <td>
+                <input id="show-record-on-page" data-attr="no_of_record" type="number" name="no_of_row" data-defaultvalue="10">
+              </td>
+            </tr>
+            <tr>
+              <div class="xepan-tool-option">
+                <td class="xepan-tool-option-title">No of Column in Row </td>
+                <td colspan="2" class="xepan-tool-option-value">
+                  <select id="{$_name}_dropdown" style="width:150px;" data-attr="no_of_column" class="chosen-select option-category" data-defaultvalue="4">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                  </select>
+                </td>
+              </div>
+            </tr>
+
+            <tr>
+              <td>
+                Detail URl
+              </td>
+              <td>
+                <input type="text" name="details-url" data-attr="detail_url_page">
+              </td>
+            </tr>
+
+          </table>
+        </div>
+      </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+  
+
+    $('\#{$_name} [data-attr]').on('change',function(){
+      $(current_selected_component).attr($(this).data('attr'),$(this).val());
+    });
+
+    $('\#{$_name}').on('show',function(event){
+      $('\#{$_name} [data-attr]').each(function(index,value){
+        $(this).val($(current_selected_component).attr($(this).data('attr')));        
+      });
+    });
+</script>

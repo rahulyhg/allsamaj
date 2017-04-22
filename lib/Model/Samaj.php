@@ -17,7 +17,8 @@ class Model_Samaj extends \xepan\base\Model_Table {
 		$this->hasOne('xavoc\allsamaj\City','city_id');
 
 		$this->addField('name');
-		$this->addField('status')->enum(['Active','InActive']);
+		$this->add('xepan/filestore/Field_Image',['name'=>'image_id','deref_field'=>'thumb_url']);
+		$this->addField('status')->enum(['Active','InActive'])->defaultValue('Active');
 		$this->hasMany('xavoc\allsamaj\News','samaj_id');
 		$this->hasMany('xavoc\allsamaj\Member','samaj_id');
 		$this->hasMany('xavoc\allsamaj\CommitiMember','samaj_id');

@@ -1,11 +1,22 @@
-<div id="{$_name}">
+<div id="{$_name}" class="{$class}" style="{$style}">
+	<div>
+		{$search_form}
+	</div>
 	{rows}
 	<div class="row">
 		{row}
-			<div class="col-md-4">
-				{$name}
+			<div class="col-md-{col}4{/}">
+				<div>
+					<img src="{$image}">
+				</div>
+				<div>
+					<a href="?page={$detail_url_page}&samaj_id={$id}">{$name}</a>
+				</div>	
 			</div>
 		{/row}
 	</div>
 	{/rows}
+	<div>
+		{$paginator}
+	</div>
 </div>

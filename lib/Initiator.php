@@ -26,6 +26,8 @@ class Initiator extends \Controller_Addon {
         ->setBaseURL('./shared/apps/xavoc/allsamaj/');
 
         $this->app->exportFrontEndTool('xavoc\allsamaj\Tool_SamajLister','AllSamaj');
+        $this->app->exportFrontEndTool('xavoc\allsamaj\Tool_SamajDetail','AllSamaj');
+        $this->app->exportFrontEndTool('xavoc\allsamaj\Tool_SamajNews','AllSamaj');
 
     	return $this;
     }
