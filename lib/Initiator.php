@@ -21,6 +21,12 @@ class Initiator extends \Controller_Addon {
     }
 
     function setup_frontend(){
+        $this->routePages('xavoc_allsamaj');
+        $this->addLocation(array('template'=>'templates','js'=>'templates/js','css'=>['templates/css','templates/js']))
+        ->setBaseURL('./shared/apps/xavoc/allsamaj/');
+
+        $this->app->exportFrontEndTool('xavoc\allsamaj\Tool_SamajLister','AllSamaj');
+
     	return $this;
     }
 }
