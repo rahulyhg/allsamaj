@@ -1,9 +1,29 @@
-{$name}
-{$city}
-{$image}
-{$status}
-{$Event}
-{$news}
-{$commiti_member}
 
-{$Content}
+<div id="{$_name}" style="width:100%" xepan-component="xepan/xavoc/Tool_SamajDetail" class="xepan-component container">
+  <div id="lightblue" class="row">
+    <div class="col-md-12">
+      <div class="panel panel-info coupon">
+        <div id="head" class="panel-heading">
+          <div id="title" class="panel-title text-center"><span class="hidden-xs">{name}Automatic Transmission Service{/name}</span><span class="visible-xs">{name}Automatic Transmission Service{/}</span></div>
+        </div>
+        <div class="panel-body"><img src="{image}http://i.imgur.com/e07tg8R.png{/}" style="width:100%" class="coupon-img img-rounded"/>
+          <div class="col-md-12">
+            <p class="disclosure">
+              {description}Using Genuine Oil Filter and
+              multigrade oil up to vehicle specification. Lube as
+              necessary. Ester Oil or Synthetic available at additional
+              cost. Excludes hazardous waste fee, tax and shop supplies,
+              where applicable. Offer not valid with previous charges or
+              with any other offers or specials. Customer must offer at
+              time of write-up. No cash value.{/}
+            </p>
+          </div>
+        </div>
+        <div xepan-component="xepan/cms/Tool_Container" emptytext="Container" style="width:85%;margin:0 auto;" class="xepan-component xepan-sortable-component xepan-cms-container ui-sortable"></div>
+        <div class="panel-footer">
+          <div class="coupon-code">Mobile No: 000000000<span class="print"><a href="#" class="btn btn-link"><i class="fa fa-lg fa-print"></i> Contact</a></span></div>
+        </div>{$Content}	
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,68 @@
+.container(id="{$_name}")
+	.row
+		.col-md-4
+			//
+				Carousel
+				==================================================
+			.carousel.slide(id="myCarousel_{$_name}")
+				.carousel-inner
+					{rows}
+					{row}
+					.item.active
+						a(href='#')
+							img.thumbnail(src='{image}http://placehold.it/600x400/{/}', alt='{name}Slide1{/}' style="width:100%")
+						.caption
+							h4 
+								a(href="?page={$news_details_page_url}&news_id={$id}"){name}Lorem ipsum dolor sit amet, consetetur sadipscing elitr{/}
+							p
+								{content}| Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.{/}
+					{/}
+					{/}
+				// Indicators
+				ol.carousel-indicators
+					li.active(data-target='myCarousel_{$_name}', data-slide-to='{$id}')
+					//- li(data-target='#myCarousel', data-slide-to='1')
+					//- li(data-target='#myCarousel', data-slide-to='2')
+			// End Carousel
+style.
+	body { padding-top: 50px; }
+	 
+	/*#####################
+	Additional Styles (required)
+	######################*/
+	.carousel-indicators {
+	    bottom:-40px;
+		left:0;
+		width:100%;
+		background:#ccc;
+		padding: 6px 0px;
+		margin-left:0;
+		border-top:2px solid #fff;
+	}
+	.carousel-indicators li {
+		width:12px;
+		height:12px;	
+		background:#fff;
+		border-color:#fff;
+	 
+	}
+	.carousel-indicators .active {
+		width:14px;
+		height:14px;
+		background:#428bca;
+		border-color:#428bca;
+	}
+	.carousel-inner .thumbnail {
+		margin-bottom:0;
+		border-bottom-left-radius:0;
+		border-bottom-right-radius:0;
+	}
+	.carousel-inner .caption {
+		background:#ddd;
+		padding: 10px;
+	}
+
+script.
+	$('myCarousel_{$_name}').carousel({
+		interval:   4000
+	});	

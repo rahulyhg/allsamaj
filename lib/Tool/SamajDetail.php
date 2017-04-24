@@ -14,6 +14,7 @@ class Tool_SamajDetail extends \xepan\cms\View_Tool {
 		$m = $this->add('xavoc/allsamaj/Model_Samaj');
 		if(!$samaj_id){
 			$this->add('View_Error')->set('Samaj Not Define');
+			return;
 		}else{
 			$m->load($samaj_id);
 		}
