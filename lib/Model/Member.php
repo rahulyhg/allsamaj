@@ -11,6 +11,9 @@ class Model_Member extends \xepan\base\Model_Table {
 
 		$this->hasOne('xavoc\allsamaj\Samaj','samaj_id');
 		$this->addField('name');
+		$this->addField('contact_no');
+		$this->addField('email');
+		$this->add('xepan/filestore/Field_Image','image_id');
 
 		$this->is([
 				'name|to_trim|required',

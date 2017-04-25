@@ -9,7 +9,7 @@ class Tool_Event extends \xepan\cms\View_Tool {
 	public $options=[
 					'show_search_bar'=>true,
 					'image'=>'',
-					'detail_page'=>'',
+					'detail_url'=>'',
 
 	];		
 	
@@ -26,9 +26,9 @@ class Tool_Event extends \xepan\cms\View_Tool {
 		$grid->setModel($m);
 		$grid->addHook('formatRow',function($g){
 			$g->current_row_html['content'] = $g->model['content'];
-			$g->current_row_html['detail_url'] = $g->app->url($this->options['detail_page'],['event_id'=>$g->model->id]);
+			$g->current_row_html['detail_url'] = $g->app->url($this->options['detail_url'],['event_id'=>$g->model->id]);
 			
-			$social_url = ['facebook_url','instagram_url','twitter_url','google_url'];
+			$social_url = ['facebook_url','instagram_url','twitter_url','google_url','website_url'];
 			foreach ($social_url as $key => $value) {
 				if($g->model[$value]){
 

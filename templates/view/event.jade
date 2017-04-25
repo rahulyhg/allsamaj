@@ -1,8 +1,8 @@
-.container(id='{$_name}')
+.container(id='{$_name}' style="width:100%")
 	{$header}
 	{$not_found_message}	
 	.row
-		.col-xs-12.col-sm-offset-2.col-sm-8
+		.col-xs-12.col-sm-12.col-md-12.col-lg-12
 			ul.event-list
 				{rows}{row}
 				li
@@ -17,37 +17,42 @@
 						h2.title
 							a(href="{$detail_url}" target="_blank") {$name}
 						p.desc {$content}
-						ul
-							li(style='width:33%;')
-								| 1 
-								span.glyphicon.glyphicon-ok
-							li(style='width:34%;')
-								| 3 
-								span.fa.fa-question
-							li(style='width:33%;')
-								| 103 
-								span.fa.fa-envelope
+						//- ul
+						//- 	li(style='width:33%;')
+						//- 		| 1 
+						//- 		span.glyphicon.glyphicon-ok
+						//- 	li(style='width:34%;')
+						//- 		| 3 
+						//- 		span.fa.fa-question
+						//- 	li(style='width:33%;')
+						//- 		| 103 
+						//- 		span.fa.fa-envelope
 					.social
 						ul
 							{facebook_url_wrapper}
 							li.facebook(style='width:33%;')
-								a(href="?page={$detail_url}")
+								a(href="{$facebook_url}")
 									span.fa.fa-facebook
 							{/}
 							{twitter_url_wrapper}
 							li.twitter(style='width:34%;')
-								a(href="?page={$detail_url}")
+								a(href="{$twitter_url}")
 									span.fa.fa-twitter
 							{/}
 							{google_url_wrapper}
 							li.google-plus(style='width:33%;')
-								a(href="?page={$detail_url}")
+								a(href="{$google_url}")
 									span.fa.fa-google-plus
 							{/}
 							{instagram_url_wrapper}
 							li.instagram(style='width:33%;')
-								a(href="?page={$detail_url}")
+								a(href="{$instagram_url}")
 									span.fa.fa-instagram
+							{/}
+							{website_url_wrapper}
+							li.website(style='width:33%;')
+								a(href="{$website_url}")
+									span.fa.fa-globe
 							{/}
 				{/}{/}
 		{$not_found}
@@ -155,6 +160,8 @@ style.
 	}
 	.facebook a,
 	.twitter a,
+	.instagram a,
+	.website a,
 	.google-plus a {
 	display: block;
 	width: 100%;
@@ -163,8 +170,14 @@ style.
 	.twitter a {
 	color: rgb(79, 213, 248) !important;
 	}
+	.instagram a {
+	color: black !important;
+	}
 	.google-plus a {
 	color: rgb(221, 75, 57) !important;
+	}
+	.website a {
+	color: black !important;
 	}
 	.facebook:hover a {
 	color: rgb(255, 255, 255) !important;
@@ -174,16 +187,26 @@ style.
 	color: rgb(255, 255, 255) !important;
 	background-color: rgb(79, 213, 248) !important;
 	}
+	.instagram:hover a {
+	color: black !important;
+	background-color: whitesmoke !important;
+	}
 	.google-plus:hover a {
 	color: rgb(255, 255, 255) !important;
 	background-color: rgb(221, 75, 57) !important;
 	}
+
+	.website:hover a {
+	color: rgb(255, 255, 255) !important;
+	background-color: rgb(221, 75, 57) !important;
+	}
+
 	@media (min-width: 768px) {
 	.event-list > li {
 	position: relative;
 	display: block;
 	width: 100%;
-	min-height: 120px;
+	min-height: 160px;
 	height: auto;
 	padding: 0px;
 	}
@@ -193,7 +216,7 @@ style.
 	}
 	.event-list > li > time,
 	.event-list > li > img {
-	width: 120px;
+	width: 160px;
 	float: left;
 	}
 	.event-list > li > .info {
@@ -202,14 +225,14 @@ style.
 	}
 	.event-list > li > time,
 	.event-list > li > img {
-	width: 120px;
-	height: 120px;
+	width: 160px;
+	height: 160px;
 	padding: 0px;
 	margin: 0px;
 	}
 	.event-list > li > .info {
 	position: relative;
-	min-height: 120px;
+	min-height: 160px;
 	height: auto;
 	text-align: left;
 	padding-right: 40px;
@@ -240,6 +263,6 @@ style.
 	.event-list > li > .social > ul > li > a {
 	display: block;
 	width: 40px;
-	padding: 10px 0px 9px;
+	padding: 5px 0;
 	}
 	}
