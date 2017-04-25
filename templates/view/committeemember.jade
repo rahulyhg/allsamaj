@@ -1,0 +1,16 @@
+.container(id='{$_name}')
+	.row
+		| {rows}
+		| {row}
+		.col-xs-12.col-md-1
+			img(alt='{$name}', src='{$image}')
+		.col-xs-12.col-md-3
+			h2 {$name}
+			<p>{$Content}</p>
+			ul
+				li
+					| {$contact_no}
+				li
+					| {$mail_id}
+		| 		{/}
+		| 		{/}

@@ -1,7 +1,16 @@
-{$name}
-{$city}
-{$state}
-{$country}
-{$image}
 
-{$Content}
+<div id="{$_name}" class="container">
+  <div class="row">
+    {rows}
+    {row}
+    <div class="col-xs-12 col-md-1"><img alt="{$name}" src="{$image}"/></div>
+    <div class="col-xs-12 col-md-3">
+      <h2>{$name}</h2><p>{$Content}</p>
+      <ul>
+        <li>{$contact_no}</li>
+        <li>{$mail_id}</li>
+      </ul>
+    </div>		{/}
+    		{/}
+  </div>
+</div>

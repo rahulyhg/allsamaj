@@ -10,7 +10,6 @@ class Model_Member extends \xepan\base\Model_Table {
 		parent::init();
 
 		$this->hasOne('xavoc\allsamaj\Samaj','samaj_id');
-
 		$this->addField('name');
 
 		$this->is([

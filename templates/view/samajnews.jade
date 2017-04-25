@@ -1,0 +1,12 @@
+.container(id='{$_name}')
+	.row
+		.col-md-1
+			time(datetime='{$date}')
+				span.day {$day}
+				span.month {$month}
+				span.year {$year}
+		.col-md-2
+			img(alt='{$name}', src='{$image}')
+		div
+			h2.title {$name}
+			p.desc {$content}

@@ -14,7 +14,6 @@ class Model_Event extends \xepan\base\Model_Table {
 
 		$this->addField('name')->caption('Title');
 		$this->addField('content')->type('text')->display(['form'=>'xepan\base\RichText']);
-		$this->addField('address')->type('text');
 		$this->addField('from_date')->type('date');
 		$this->addField('to_date')->type('date');
 		
@@ -38,7 +37,6 @@ class Model_Event extends \xepan\base\Model_Table {
 				'name|to_trim|required',
 				'samaj_id|required',
 				'category_id|required',
-				'address|to_trim|required',
 				'content|required',
 				'from_date|required',
 				'to_date|required',

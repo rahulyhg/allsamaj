@@ -31,27 +31,24 @@
 						ul
 							{facebook_url_wrapper}
 							li.facebook(style='width:33%;')
-								a(href='{$facebook_url}')
+								a(href="?page={$detail_url}")
 									span.fa.fa-facebook
 							{/}
 							{twitter_url_wrapper}
 							li.twitter(style='width:34%;')
-								a(href='{$twitter_url}')
+								a(href="?page={$detail_url}")
 									span.fa.fa-twitter
 							{/}
 							{google_url_wrapper}
 							li.google-plus(style='width:33%;')
-								a(href='{$google_url}')
+								a(href="?page={$detail_url}")
 									span.fa.fa-google-plus
 							{/}
 							{instagram_url_wrapper}
 							li.instagram(style='width:33%;')
-								a(href='{$instagram_url}')
+								a(href="?page={$detail_url}")
 									span.fa.fa-instagram
 							{/}
-					.location
-						address
-							p {address}{/}
 				{/}{/}
 		{$not_found}
 style.
