@@ -1,0 +1,31 @@
+.xepan-component.container(id="{$_name}" style="width:100%" xepan-component='xepan/xavoc/Tool_EventDetail')
+	#lightblue.row
+			.col-md-12
+				.panel.panel-info.coupon
+					#head.panel-heading
+						#title.panel-title.text-center
+							span.hidden-xs {name}Automatic Transmission Service{/name}
+							span.visible-xs {name}Automatic Transmission Service{/}
+					.panel-body
+						//- img.coupon-img.img-rounded(src='{image}http://i.imgur.com/e07tg8R.png{/}' style="width:100%")
+						img(alt='{$name}' src='{$image}' style="width:100%")
+						.col-md-12
+							p.disclosure
+								| {description}Using Genuine Oil Filter and
+								| multigrade oil up to vehicle specification. Lube as
+								| necessary. Ester Oil or Synthetic available at additional
+								| cost. Excludes hazardous waste fee, tax and shop supplies,
+								| where applicable. Offer not valid with previous charges or
+								| with any other offers or specials. Customer must offer at
+								| time of write-up. No cash value.{/}
+					//- .xepan-component.xepan-page-wrapper.ui-sortable(xepan-component="xepan/cms/Tool_TemplateContentRegion" emptytext="Page Content" class="" style="min-height: 200px;"){$Content}					
+					//- .xepan-component.xepan-sortable-component.xepan-cms-container.ui-sortable(xepan-component="xepan/cms/Tool_Container" emptytext="Container" style="width:85%;margin:0 auto;")
+					//- .panel-footer
+					//- 	.coupon-code
+					//- 		| Mobile No: 000000000
+					//- 		span.print
+					//- 			a.btn.btn-link(href='#')
+					//- 				i.fa.fa-lg.fa-print
+					//- 				|  Contact
+						//- .exp Expires: Sep 30, 2016
+					{$Content}	

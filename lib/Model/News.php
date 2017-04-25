@@ -15,6 +15,7 @@ class Model_News extends \xepan\base\Model_Table {
 		$this->addField('name')->caption('Title');
 		$this->addField('content')->type('text')->display(['form'=>'xepan\base\RichText']);
 		$this->addField('date')->type('date');
+		$this->add('xepan/filestore/Field_Image','image_id');
 
 		$this->is([
 				'name|to_trim|required',
