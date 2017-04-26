@@ -18,7 +18,8 @@ class Model_CommitteeMember extends \xepan\base\Model_Table{
 		// $this->addField('mail_id');
 
 		
-		$this->addExpression('samaj')->set($this->ref('committee_id')->fieldQuery('samaj'));
+		$this->addExpression('samaj_id')->set($this->refSQL('committee_id')->fieldQuery('samaj_id'));
+		$this->addExpression('samaj')->set($this->refSQL('committee_id')->fieldQuery('samaj'));
 		$this->addExpression('contact_no')->set($this->refSQL('member_id')->fieldQuery('contact_no'));
 		$this->addExpression('email')->set($this->refSQL('member_id')->fieldQuery('email'));
 		$this->addExpression('image')->set($this->refSQL('member_id')->fieldQuery('image'));

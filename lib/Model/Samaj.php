@@ -28,6 +28,16 @@ class Model_Samaj extends \xepan\base\Model_Table {
 
 		$this->add('dynamic_model\Controller_AutoCreator');
 
+		$this->addExpression('state')->set(function($m,$q){
+			return $m->refSQL('city_id')->fieldQuery('state');
+		});
+
+		$this->addExpression('search_string')->set(function($m,$q){
+			return $q->expr('CONCAT([0]," ",[1]," ",[2])',[$m->getElement('name'),$m->getElement('city'),$m->getElement('state')]);
+		});
+
+
+
 	}
 
 	function page_manage_news($page){

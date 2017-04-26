@@ -36,6 +36,7 @@ class Initiator extends \Controller_Addon {
         $this->app->exportFrontEndTool('xavoc\allsamaj\Tool_CommitteeMember','AllSamaj');
         $this->app->exportFrontEndTool('xavoc\allsamaj\Tool_Member','AllSamaj');
         $this->app->exportFrontEndTool('xavoc\allsamaj\Tool_EventDetail','AllSamaj');
+        $this->app->exportFrontEndTool('xavoc\allsamaj\Tool_Committee','AllSamaj');
 
     	return $this;
     }

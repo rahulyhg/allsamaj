@@ -16,16 +16,31 @@ class Tool_SamajLister extends \xepan\cms\View_Tool {
 	function init(){
 		parent::init();
 		
-
+		$fliter_samaj = $this->app->stickyGET('samaj_filter');
+		
 		$samaj_model = $this->add('xavoc\allsamaj\Model_Samaj');
-		$lister = $this->add('CompleteLister',null,null,['view/samajlister']);
+		if($fliter_samaj)
+			$samaj_model->addCondition('id',$fliter_samaj);
+		$view = $this->add('View');
+		$lister = $view->add('CompleteLister',null,null,['view/samajlister']);
 		
 		if($this->options['show_search_bar']){
 			$f = $lister->add('Form',null,'search_form');;
 			$f->setLayout(['view/serchform']);
-			$f->addField('line','search');
 
+			$search_samaj = $this->add('xavoc\allsamaj\Model_Samaj',['title_field'=>'search_string']);
+			$s_f = $f->addField('autocomplete\Basic','search');
+			$s_f->setModel($search_samaj);
 			$f->addSubmit(' ')->addClass(' btn btn-default glyphicon  glyphicon-search');
+
+			if($f->isSubmitted()){
+				$view->js()->reload(
+									[
+										'samaj_filter'=>$f['search']
+									]
+								)
+				->execute();
+			}
 
 		}else{
 			$lister->template->tryDel('search_form');

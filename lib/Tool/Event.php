@@ -16,8 +16,12 @@ class Tool_Event extends \xepan\cms\View_Tool {
 	function init(){
 		parent::init();
 		$samaj_id = $this->app->stickyGET('samaj_id');
+		$committee_id = $this->app->stickyGET('committee_id');
 		$m = $this->add('xavoc/allsamaj/Model_Event');
-
+		if($samaj_id)
+			$m->addCondition('samaj_id',$samaj_id);
+		if($committee_id)
+			$m->addCondition('committee_id',$committee_id);
 		// $m->addExpression('detail_url')->set(function($m,$q){
 		// 	return $url;
 		// });
