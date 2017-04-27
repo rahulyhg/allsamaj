@@ -64,7 +64,7 @@ class Tool_SamajLister extends \xepan\cms\View_Tool {
 			$paginator = $lister->add('Paginator',null,'paginator');
 			$paginator->setRowsPerPage($this->options['no_of_record']);
 
-			$samaj_model->setLimit($this->options['no_of_record']);
+			// $samaj_model->setLimit($this->options['no_of_record']);
 		}
 
 		$lister->add('xepan\cms\Controller_Tool_Optionhelper',['options'=>$this->options,'model'=>$samaj_model]);

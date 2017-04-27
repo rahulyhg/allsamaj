@@ -7,7 +7,7 @@ namespace xavoc\allsamaj;
 */
 class Tool_Event extends \xepan\cms\View_Tool {
 	public $options=[
-					'image'=>'',
+					'show_image'=>'',
 					'detail_url'=>'',
 					'no_of_record'=>10,
 
@@ -41,13 +41,19 @@ class Tool_Event extends \xepan\cms\View_Tool {
 				}
 			}
 
+			if(!$this->options['show_image']){
+				$g->current_row_html['image_wrapper'] = "";
+
+			}
+
 		});
 
 		if($this->options['no_of_record']){
-			$paginator = $lister->add('Paginator',null,'paginator');
-			$paginator->setRowsPerPage($this->options['no_of_record']);
+			// $paginator = $grid->add('Paginator',null,'paginator');
+			// $paginator->setRowsPerPage($this->options['no_of_record']);
+			$grid->addPaginator($this->options['no_of_record']);
 
-			$samaj_model->setLimit($this->options['no_of_record']);
+			// $m->setLimit($this->options['no_of_record']);
 		}
 
 

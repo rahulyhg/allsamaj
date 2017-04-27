@@ -49,7 +49,7 @@ class Tool_SamajNews extends \xepan\cms\View_Tool {
 			$paginator = $lister->add('Paginator',null,'paginator');
 			$paginator->setRowsPerPage($this->options['no_of_record']);
 
-			$samaj_model->setLimit($this->options['no_of_record']);
+			// $n->setLimit($this->options['no_of_record']);
 		}
 	}
 

@@ -10,7 +10,9 @@
 				span.year {$year}
 				//- span.time 8:00 PM
 			//- a(href="{$detail_url}" target="_blank")
+			{image_wrapper}
 			img(alt='{$name}', src='{$image}')
+			{/image_wrapper}
 			.info
 				h2.title
 					a(href="{$detail_url}" target="_blank") {$name}
@@ -54,3 +56,4 @@
 					{/}
 		{/}{/}
 		{$not_found}
+		{$Paginator}
