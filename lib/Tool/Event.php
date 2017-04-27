@@ -7,9 +7,9 @@ namespace xavoc\allsamaj;
 */
 class Tool_Event extends \xepan\cms\View_Tool {
 	public $options=[
-					'show_search_bar'=>true,
 					'image'=>'',
 					'detail_url'=>'',
+					'no_of_record'=>10,
 
 	];		
 	
@@ -42,6 +42,13 @@ class Tool_Event extends \xepan\cms\View_Tool {
 			}
 
 		});
+
+		if($this->options['no_of_record']){
+			$paginator = $lister->add('Paginator',null,'paginator');
+			$paginator->setRowsPerPage($this->options['no_of_record']);
+
+			$samaj_model->setLimit($this->options['no_of_record']);
+		}
 
 
 	}

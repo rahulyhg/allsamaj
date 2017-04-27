@@ -33,7 +33,7 @@ class Tool_SamajNews extends \xepan\cms\View_Tool {
 				$l->current_row_html['detail_url'] = $this->options['detail_url_page'];
 			}
 
-			
+
 
 			if($this->options['detail_url_page']){
 				$l->current_row_html['detail_url'] = $this->options['detail_url_page'];
@@ -44,6 +44,13 @@ class Tool_SamajNews extends \xepan\cms\View_Tool {
 		});
 		
 		$lister->setModel($n);
+
+		if($this->options['no_of_record']){
+			$paginator = $lister->add('Paginator',null,'paginator');
+			$paginator->setRowsPerPage($this->options['no_of_record']);
+
+			$samaj_model->setLimit($this->options['no_of_record']);
+		}
 	}
 
 	// function defaultTemplate(){
