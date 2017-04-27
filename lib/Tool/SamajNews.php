@@ -16,7 +16,7 @@ class Tool_SamajNews extends \xepan\cms\View_Tool {
 		$samaj_id = $this->app->stickyGET('samaj_id');
 		$n = $this->add('xavoc\allsamaj\Model_News');
 		if($samaj_id){
-			$n->AddCondition('samaj_id',$samaj_id);		
+			$n->addCondition('samaj_id',$samaj_id);		
 		}
 		$lister = $this->add('CompleteLister',null,null,['view/samajnews1']);
 
