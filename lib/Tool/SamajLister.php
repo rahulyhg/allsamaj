@@ -54,7 +54,7 @@ class Tool_SamajLister extends \xepan\cms\View_Tool {
 			}
 
 			if($this->options['detail_url_page']){
-				$l->current_row_html['detail_url_page'] = $this->options['detail_url_page'];
+				$l->current_row_html['detail_url_page'] = $this->app->url($this->options['detail_url_page'],['samaj_id'=>$l->model->id]);
 			}			
 		});
 

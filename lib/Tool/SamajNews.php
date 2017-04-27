@@ -16,10 +16,17 @@ class Tool_SamajNews extends \xepan\cms\View_Tool {
 		parent::init();
 		
 		$samaj_id = $this->app->stickyGET('samaj_id');
+		$this->news_id = $this->app->stickyGET('news_id');
 		$n = $this->add('xavoc\allsamaj\Model_News');
+		if($this->news_id){
+			$n->addCondition('id',$this->news_id);		
+			$this->options['no_of_column'] = "12";
+
+		}
 		if($samaj_id){
 			$n->addCondition('samaj_id',$samaj_id);		
 		}
+		
 		$lister = $this->add('CompleteLister',null,null,['view/samajnews']);
 
 		$lister->addHook('formatRow',function($l){
@@ -30,14 +37,12 @@ class Tool_SamajNews extends \xepan\cms\View_Tool {
 			}
 
 			if($this->options['detail_url_page']){
-				$l->current_row_html['detail_url'] = $this->options['detail_url_page'];
+				$l->current_row_html['detail_url'] = $this->app->url($this->options['detail_url_page'],['news_id'=>$l->model->id]);
 			}
-
-
-
-			if($this->options['detail_url_page']){
-				$l->current_row_html['detail_url'] = $this->options['detail_url_page'];
-			}	
+			if($this->news_id){
+			$l->current_row_html['btn_block'] = "";		
+				
+			}
 
 			$l->current_row_html['content'] = $l->model['content'];		
 			$l->current_row_html['date'] = date('F d, Y',strtotime($l->model['date']));
@@ -49,11 +54,7 @@ class Tool_SamajNews extends \xepan\cms\View_Tool {
 			$paginator = $lister->add('Paginator',null,'paginator');
 			$paginator->setRowsPerPage($this->options['no_of_record']);
 
-			// $n->setLimit($this->options['no_of_record']);
 		}
 	}
 
-	// function defaultTemplate(){
-	// 	return ['view/samajnews1'];
-	// }
 }

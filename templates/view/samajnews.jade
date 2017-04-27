@@ -6,7 +6,7 @@
 				.image-block
 					img(src="{$image}")
 				.news_content
-					a(href="{$detail_url}&news_id={$id}")
+					a(href="{$detail_url}")
 						h4.news_title.news_title__news
 							span.news_title_part0|{$name}
 					time.news_published(datetime="2014-03-31 16:27")
@@ -15,9 +15,11 @@
 					.news_introtext
 						{content}Fusce euismod consequat ante. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Pellentesque sed dolor. Aliquam congue fermentum nisl. Mauris accumsan nulla vel diam. Sed in lacus ut{/}
 						//- <!-- Read More link -->
-					a.btn.btn-info.readmore(href="{$detail_url}&news_id={$id}")
+					{btn_block}
+					a.btn.btn-info.readmore(href="{$detail_url}")
 						span
 							|Read more
+					{/btn_block}
 		{/}{/}
 		{$paginator}
 style.

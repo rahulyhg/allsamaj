@@ -4,11 +4,11 @@
     <div class="col-md-{col}4{/} col-lg-{col}4{/} col-sm-12 col-xs-12">
       <div class="content-block">
         <div class="image-block"><img src="{$image}"/></div>
-        <div class="news_content"><a href="{$detail_url}&amp;news_id={$id}">
+        <div class="news_content"><a href="{$detail_url}">
             <h4 class="news_title news_title__news"><span class="news_title_part0">{$name}</span></h4></a>
           <time datetime="2014-03-31 16:27" class="news_published">{date}March 31, 2014{/}</time>
           <div class="news_introtext">{content}Fusce euismod consequat ante. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Pellentesque sed dolor. Aliquam congue fermentum nisl. Mauris accumsan nulla vel diam. Sed in lacus ut{/}
-          </div><a href="{$detail_url}&amp;news_id={$id}" class="btn btn-info readmore"><span>Read more</span></a>
+          </div>{btn_block}<a href="{$detail_url}" class="btn btn-info readmore"><span>Read more</span></a>{/btn_block}
         </div>
       </div>
     </div>{/}{/}
