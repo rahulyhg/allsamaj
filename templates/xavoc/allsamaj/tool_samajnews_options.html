@@ -6,10 +6,31 @@
       <div class="panel-body">
         <table class="table table-condensed table-hover">
           <tr>
-            <td>Detail URl</td>
+            <td>Detail URL</td>
             <td>
               <input type="text" name="details-url" data-attr="detail_url_page"/>
             </td>
+          </tr>
+          <tr>
+            <td>Show No of Records</td>
+            <td>
+              <input id="show-record-on-page" data-attr="no_of_record" type="number" name="no_of_row" data-defaultvalue="10"/>
+            </td>
+          </tr>
+          <tr>
+            <div class="xepan-tool-option">
+              <td class="xepan-tool-option-title">No of Column in Row </td>
+              <td colspan="2" class="xepan-tool-option-value">
+                <select id="{$_name}_dropdown" style="width:150px;" data-attr="no_of_column" data-defaultvalue="4" class="chosen-select option-category">
+                  <option value="12">1</option>
+                  <option value="6">2</option>
+                  <option value="4">3</option>
+                  <option value="3">4</option>
+                  <option value="2">6</option>
+                  <option value="1">12</option>
+                </select>
+              </td>
+            </div>
           </tr>
         </table>
       </div>

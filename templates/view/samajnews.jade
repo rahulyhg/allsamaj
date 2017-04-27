@@ -1,12 +1,54 @@
 .container(id='{$_name}' style="width:100%") 
-	.row
-		.col-md-1
-			time(datetime='{$date}')
-				span.day {$day}
-				span.month {$month}
-				span.year {$year}
-		.col-md-2
-			img(alt='{$name}', src='{$image}')
-		div
-			h2.title {$name}
-			p.desc {$content}
+	.row.news-session
+		{rows}{row}
+		div(class="col-md-{col}4{/} col-lg-{col}4{/} col-sm-12 col-xs-12")
+			.content-block
+				.image-block
+					img(src="{$image}")
+				.news_content
+					a(href="{$detail_url}&news_id={$id}")
+						h4.news_title.news_title__news
+							span.news_title_part0|{$name}
+					time.news_published(datetime="2014-03-31 16:27")
+						{date}March 31, 2014{/}
+					//- <!-- Introtext -->
+					.news_introtext
+						{content}Fusce euismod consequat ante. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Pellentesque sed dolor. Aliquam congue fermentum nisl. Mauris accumsan nulla vel diam. Sed in lacus ut{/}
+						//- <!-- Read More link -->
+					a.btn.btn-info.readmore(href="{$detail_url}&news_id={$id}")
+						span
+							|Read more
+		{/}{/}
+style.
+	.news-session .news_content {
+		padding: 6px 20px 25px;
+	}
+	.news-session .content-block {
+	    border: 1px solid #dbdbdb;
+	}
+
+	.news-session .image-block {
+		float: none;
+		margin-right: 0;
+	}
+	.news-session .image-block img{
+		width:100%;
+	}
+	.news-session h4 {
+		padding: 0 0 6px;
+		color: #535353;
+		font: 18px/24px "Sanchez",serif;
+		padding: 0 0 5px;
+	}	
+	.news-session .news_published {
+		color: #a5a5a5;
+		display: block;
+		padding-bottom: 5px;
+	}
+
+
+	.news-session .news_introtext {
+		border-bottom: 1px solid #dbdbdb;
+		margin-bottom: 10px;
+		padding-bottom: 13px;
+	}
