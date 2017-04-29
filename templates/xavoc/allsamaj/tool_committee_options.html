@@ -1,0 +1,34 @@
+
+<div id="{$_name}" style="display: none" for-xepan-component="xavoc/allsamaj/Tool_Committee" class="xepan-tool-options">
+  <div class="xepan-cms-group-panel clearfix">
+    <h3 data-toggle="collapse" data-target="#collapse-carousel" aria-expanded="false" class="collapsed"><span>Samaj Committee`s</span></h3>
+    <div id="collapse-carousel" class="xepan-cms-tools-bar-panel row-fluid collapse in">
+      <div class="panel-body">
+        <table class="table table-condensed table-hover">
+          <tr>
+            <td>Detail URL</td>
+            <td>
+              <input type="text" name="details-url" data-attr="detail_url_page"/>
+            </td>
+          </tr>
+          <tr>
+            <td>Show No of Records</td>
+            <td>
+              <input id="show-record-on-page" data-attr="no_of_record" type="number" name="no_of_row" data-defaultvalue="10"/>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+  $('\#{$_name} [data-attr]').on('change',function(){
+  $(current_selected_component).attr($(this).data('attr'),$(this).val());
+  });
+  $('\#{$_name}').on('show',function(event){
+  $('\#{$_name} [data-attr]').each(function(index,value){
+  $(this).val($(current_selected_component).attr($(this).data('attr')));
+  });
+  });
+</script>
