@@ -1,31 +1,255 @@
 .xepan-component.container(id="{$_name}" style="width:100%" xepan-component='xepan/xavoc/Tool_EventDetail')
-	#lightblue.row
-			.col-md-12
-				.panel.panel-info.coupon
-					#head.panel-heading
-						#title.panel-title.text-center
-							span.hidden-xs {name}Automatic Transmission Service{/name}
-							span.visible-xs {name}Automatic Transmission Service{/}
-					.panel-body
-						//- img.coupon-img.img-rounded(src='{image}http://i.imgur.com/e07tg8R.png{/}' style="width:100%")
-						img(alt='{$name}' src='{$image}' style="width:100%")
-						.col-md-12
-							p.disclosure
-								| {description}Using Genuine Oil Filter and
-								| multigrade oil up to vehicle specification. Lube as
-								| necessary. Ester Oil or Synthetic available at additional
-								| cost. Excludes hazardous waste fee, tax and shop supplies,
-								| where applicable. Offer not valid with previous charges or
-								| with any other offers or specials. Customer must offer at
-								| time of write-up. No cash value.{/}
-					//- .xepan-component.xepan-page-wrapper.ui-sortable(xepan-component="xepan/cms/Tool_TemplateContentRegion" emptytext="Page Content" class="" style="min-height: 200px;"){$Content}					
-					//- .xepan-component.xepan-sortable-component.xepan-cms-container.ui-sortable(xepan-component="xepan/cms/Tool_Container" emptytext="Container" style="width:85%;margin:0 auto;")
-					//- .panel-footer
-					//- 	.coupon-code
-					//- 		| Mobile No: 000000000
-					//- 		span.print
-					//- 			a.btn.btn-link(href='#')
-					//- 				i.fa.fa-lg.fa-print
-					//- 				|  Contact
-						//- .exp Expires: Sep 30, 2016
-					{$Content}	
+	.page-title
+		img(alt='{$name}' src='{image}content-images/73.gif{/}', height='600' style="width:100%;height:600px")
+		.page-title-cover
+			h1 {name}Wedding Party{/}
+	.wrap
+	.container
+		.ceremony-page-location-container
+			.ceremony-page-location-container-right
+				script(language='javascript', type='text/javascript').
+					var map;
+					var geocoder;
+					function InitializeMap() {
+					var latlng = new google.maps.LatLng(36.167342,-115.148419);
+					var myOptions =
+					{
+					zoom: 8,
+					center: latlng,
+					scrollwheel: true,
+					disableDefaultUI: false,
+					mapTypeId: google.maps.MapTypeId.ROADMAP,
+					mapTypeControl: true,
+					mapTypeControlOptions: { style: google.maps.MapTypeControlStyle.DEFAULT },
+					navigationControl: true,
+					navigationControlOptions: { style: google.maps.NavigationControlStyle.DEFAULT }
+					};
+					map = new google.maps.Map(document.getElementById("map"), myOptions);
+					marker = new google.maps.Marker({
+					draggable: true,
+					map: map,
+					position: latlng
+					});
+					}
+					function FindLocaiton() {
+					geocoder = new google.maps.Geocoder();
+					InitializeMap();
+					var address = document.getElementById("addressinput").value;
+					geocoder.geocode({ 'address': address }, function (results, status) {
+					if (status == google.maps.GeocoderStatus.OK) {
+					map.setCenter(results[0].geometry.location);
+					var marker = new google.maps.Marker({
+					map: map,
+					position: results[0].geometry.location
+					});
+					}
+					else {
+					alert("Geocode was not successful for the following reason: " + status);
+					}
+					});
+					}
+					function Button1_onclick() {
+					FindLocaiton();
+					}
+					window.onload = InitializeMap;
+				#map(style='height: 306px; position: relative; overflow: hidden;')
+					div(style='height: 100%; width: 100%; position: absolute; top: 0px; left: 0px; background-color: rgb(229, 227, 223);')
+						.gm-style(style='position: absolute; z-index: 0; left: 0px; top: 0px; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px;')
+							div(style='position: absolute; z-index: 0; left: 0px; top: 0px; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px; cursor: url("http://maps.gstatic.com/mapfiles/openhand_8_8.cur"), default;')
+								div(style='z-index: 1; position: absolute; top: 0px; left: 0px; width: 100%; transform-origin: 255px 236px 0px;')
+									div(style='position: absolute; left: 0px; top: 0px; z-index: 100; width: 100%;')
+										div(style='position: absolute; left: 0px; top: 0px; z-index: 0;')
+											div(style='position: absolute; left: 0px; top: 0px; z-index: 1; visibility: inherit;', aria-hidden='true')
+												div(style='width: 256px; height: 256px; position: absolute; left: 150px; top: -103px;')
+												div(style='width: 256px; height: 256px; position: absolute; left: 150px; top: 153px;')
+												div(style='width: 256px; height: 256px; position: absolute; left: 406px; top: -103px;')
+												div(style='width: 256px; height: 256px; position: absolute; left: 406px; top: 153px;')
+												div(style='width: 256px; height: 256px; position: absolute; left: -106px; top: -103px;')
+												div(style='width: 256px; height: 256px; position: absolute; left: -106px; top: 153px;')
+												div(style='width: 256px; height: 256px; position: absolute; left: 662px; top: -103px;')
+												div(style='width: 256px; height: 256px; position: absolute; left: 662px; top: 153px;')
+									div(style='position: absolute; left: 0px; top: 0px; z-index: 101; width: 100%;')
+									div(style='position: absolute; left: 0px; top: 0px; z-index: 102; width: 100%;')
+									div(style='position: absolute; left: 0px; top: 0px; z-index: 103; width: 100%;')
+										div(style='position: absolute; left: 0px; top: 0px; z-index: -1;')
+											div(style='position: absolute; left: 0px; top: 0px; z-index: 1; visibility: inherit;', aria-hidden='true')
+												div(style='width: 256px; height: 256px; overflow: hidden; position: absolute; left: 150px; top: -103px;')
+												div(style='width: 256px; height: 256px; overflow: hidden; position: absolute; left: 150px; top: 153px;')
+												div(style='width: 256px; height: 256px; overflow: hidden; position: absolute; left: 406px; top: -103px;')
+												div(style='width: 256px; height: 256px; overflow: hidden; position: absolute; left: 406px; top: 153px;')
+												div(style='width: 256px; height: 256px; overflow: hidden; position: absolute; left: -106px; top: -103px;')
+												div(style='width: 256px; height: 256px; overflow: hidden; position: absolute; left: -106px; top: 153px;')
+												div(style='width: 256px; height: 256px; overflow: hidden; position: absolute; left: 662px; top: -103px;')
+												div(style='width: 256px; height: 256px; overflow: hidden; position: absolute; left: 662px; top: 153px;')
+									div(style='position: absolute; z-index: 0; left: 0px; top: 0px;')
+										div(style='overflow: hidden; width: 770px; height: 306px;')
+											img(style='width: 770px; height: 306px;', src='http://maps.googleapis.com/maps/api/js/StaticMapService.GetMapImage?1m2&1i51050&2i105319&2e1&3u10&4m2&1u770&2u306&5m5&1e0&5sen-US&6sus&10b1&12b1&token=88346')
+									div(style='position: absolute; left: 0px; top: 0px; z-index: 0;')
+										div(style='position: absolute; left: 0px; top: 0px; z-index: 1; visibility: inherit;', aria-hidden='true')
+											div(style='position: absolute; left: 150px; top: -103px; transition: opacity 200ms ease-out 0s;')
+												img(style='width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;', src='http://maps.google.com/maps/vt?pb=!1m5!1m4!1i10!2i200!3i411!4i256!2m3!1e0!2sm!3i378066972!3m9!2sen-US!3sUS!5e18!12m1!1e68!12m3!1e37!2m1!1ssmartmaps!4e0&token=49202', draggable='false', alt='')
+											div(style='position: absolute; left: 150px; top: 153px; transition: opacity 200ms ease-out 0s;')
+												img(style='width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;', src='http://maps.google.com/maps/vt?pb=!1m5!1m4!1i10!2i200!3i412!4i256!2m3!1e0!2sm!3i378067176!3m9!2sen-US!3sUS!5e18!12m1!1e68!12m3!1e37!2m1!1ssmartmaps!4e0&token=120420', draggable='false', alt='')
+											div(style='position: absolute; left: 406px; top: -103px; transition: opacity 200ms ease-out 0s;')
+												img(style='width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;', src='http://maps.google.com/maps/vt?pb=!1m5!1m4!1i10!2i201!3i411!4i256!2m3!1e0!2sm!3i378066972!3m9!2sen-US!3sUS!5e18!12m1!1e68!12m3!1e37!2m1!1ssmartmaps!4e0&token=97991', draggable='false', alt='')
+											div(style='position: absolute; left: 406px; top: 153px; transition: opacity 200ms ease-out 0s;')
+												img(style='width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;', src='http://maps.google.com/maps/vt?pb=!1m5!1m4!1i10!2i201!3i412!4i256!2m3!1e0!2sm!3i378066972!3m9!2sen-US!3sUS!5e18!12m1!1e68!12m3!1e37!2m1!1ssmartmaps!4e0&token=2941', draggable='false', alt='')
+											div(style='position: absolute; left: -106px; top: -103px; transition: opacity 200ms ease-out 0s;')
+												img(style='width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;', src='http://maps.google.com/maps/vt?pb=!1m5!1m4!1i10!2i199!3i411!4i256!2m3!1e0!2sm!3i378066972!3m9!2sen-US!3sUS!5e18!12m1!1e68!12m3!1e37!2m1!1ssmartmaps!4e0&token=46137', draggable='false', alt='')
+											div(style='position: absolute; left: -106px; top: 153px; transition: opacity 200ms ease-out 0s;')
+												img(style='width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;', src='http://maps.google.com/maps/vt?pb=!1m5!1m4!1i10!2i199!3i412!4i256!2m3!1e0!2sm!3i378067176!3m9!2sen-US!3sUS!5e18!12m1!1e68!12m3!1e37!2m1!1ssmartmaps!4e0&token=117355', draggable='false', alt='')
+											div(style='position: absolute; left: 662px; top: -103px; transition: opacity 200ms ease-out 0s;')
+												img(style='width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;', src='http://maps.google.com/maps/vt?pb=!1m5!1m4!1i10!2i202!3i411!4i256!2m3!1e0!2sm!3i378067248!3m9!2sen-US!3sUS!5e18!12m1!1e68!12m3!1e37!2m1!1ssmartmaps!4e0&token=122326', draggable='false', alt='')
+											div(style='position: absolute; left: 662px; top: 153px; transition: opacity 200ms ease-out 0s;')
+												img(style='width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;', src='http://maps.google.com/maps/vt?pb=!1m5!1m4!1i10!2i202!3i412!4i256!2m3!1e0!2sm!3i378066972!3m9!2sen-US!3sUS!5e18!12m1!1e68!12m3!1e37!2m1!1ssmartmaps!4e0&token=51730', draggable='false', alt='')
+								div(style='z-index: 2; position: absolute; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px; left: 0px; top: 0px;')
+								div(style='z-index: 3; position: absolute; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px; left: 0px; top: 0px;')
+									div(style='z-index: 1; position: absolute; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px; left: 0px; top: 0px;')
+								div(style='z-index: 4; position: absolute; top: 0px; left: 0px; width: 100%; transform-origin: 255px 236px 0px;')
+									div(style='position: absolute; left: 0px; top: 0px; z-index: 104; width: 100%;')
+									div(style='position: absolute; left: 0px; top: 0px; z-index: 105; width: 100%;')
+									div(style='position: absolute; left: 0px; top: 0px; z-index: 106; width: 100%;')
+									div(style='position: absolute; left: 0px; top: 0px; z-index: 107; width: 100%;')
+								iframe(style='z-index: -1; border: 0px none; position: absolute; height: 100%; width: 100%; padding: 0px; margin: 0px; left: 0px; top: 0px;', frameborder='0')
+							div(style='margin-left: 5px; margin-right: 5px; z-index: 1000000; position: absolute; left: 0px; bottom: 0px;')
+								a(style='position: static; overflow: visible; float: none; display: inline;', target='_blank', href='https://maps.google.com/maps?ll=33.137982,-109.364117&z=10&t=m&hl=en-US&gl=US&mapclient=apiv3', title='Click to see this area on Google Maps')
+									div(style='width: 66px; height: 26px; cursor: pointer;')
+										img(style='position: absolute; left: 0px; top: 0px; width: 66px; height: 26px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px;', src='http://maps.gstatic.com/mapfiles/api-3/images/google4.png', draggable='false')
+							div(style='background-color: white; padding: 15px 21px; border: 1px solid rgb(171, 171, 171); font-family: Roboto,Arial,sans-serif; color: rgb(34, 34, 34); box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.2); z-index: 10000002; display: none; width: 256px; height: 148px; position: absolute; left: 235px; top: 63px;')
+								div(style='padding: 0px 0px 10px; font-size: 16px;') Map Data
+								div(style='font-size: 13px;') Map data ©2017 Google
+								div(style='width: 13px; height: 13px; overflow: hidden; position: absolute; opacity: 0.7; right: 12px; top: 12px; z-index: 10000; cursor: pointer;')
+									img(style='position: absolute; left: -2px; top: -336px; width: 59px; height: 492px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;', src='http://maps.gstatic.com/mapfiles/api-3/images/mapcnt6.png', draggable='false')
+							.gmnoprint(style='z-index: 1000001; position: absolute; right: 161px; bottom: 0px; width: 121px;')
+								.gm-style-cc(draggable='false', style='-moz-user-select: none; height: 14px; line-height: 14px;')
+									div(style='opacity: 0.7; width: 100%; height: 100%; position: absolute;')
+										div(style='width: 1px;')
+										div(style='background-color: rgb(245, 245, 245); width: auto; height: 100%; margin-left: 1px;')
+									div(style='position: relative; padding-right: 6px; padding-left: 6px; font-family: Roboto,Arial,sans-serif; font-size: 10px; color: rgb(68, 68, 68); white-space: nowrap; direction: ltr; text-align: right; vertical-align: middle; display: inline-block;')
+										a(style='color: rgb(68, 68, 68); text-decoration: none; cursor: pointer; display: none;') Map Data
+										span(style='') Map data ©2017 Google
+							.gmnoscreen(style='position: absolute; right: 0px; bottom: 0px;')
+								div(style='font-family: Roboto,Arial,sans-serif; font-size: 11px; color: rgb(68, 68, 68); direction: ltr; text-align: right; background-color: rgb(245, 245, 245);') Map data ©2017 Google
+							.gmnoprint.gm-style-cc(style='z-index: 1000001; -moz-user-select: none; height: 14px; line-height: 14px; position: absolute; right: 92px; bottom: 0px;', draggable='false')
+								div(style='opacity: 0.7; width: 100%; height: 100%; position: absolute;')
+									div(style='width: 1px;')
+									div(style='background-color: rgb(245, 245, 245); width: auto; height: 100%; margin-left: 1px;')
+								div(style='position: relative; padding-right: 6px; padding-left: 6px; font-family: Roboto,Arial,sans-serif; font-size: 10px; color: rgb(68, 68, 68); white-space: nowrap; direction: ltr; text-align: right; vertical-align: middle; display: inline-block;')
+									a(style='text-decoration: none; cursor: pointer; color: rgb(68, 68, 68);', href='https://www.google.com/intl/en-US_US/help/terms_maps.html', target='_blank') Terms of Use
+							div(style='cursor: pointer; width: 25px; height: 25px; overflow: hidden; display: none; margin: 10px 14px; position: absolute; top: 0px; right: 0px;')
+								img.gm-fullscreen-control(style='position: absolute; left: -52px; top: -86px; width: 164px; height: 175px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px;', src='http://maps.gstatic.com/mapfiles/api-3/images/sv9.png', draggable='false')
+							.gm-style-cc(draggable='false', style='-moz-user-select: none; height: 14px; line-height: 14px; position: absolute; right: 0px; bottom: 0px;')
+								div(style='opacity: 0.7; width: 100%; height: 100%; position: absolute;')
+									div(style='width: 1px;')
+									div(style='background-color: rgb(245, 245, 245); width: auto; height: 100%; margin-left: 1px;')
+								div(style='position: relative; padding-right: 6px; padding-left: 6px; font-family: Roboto,Arial,sans-serif; font-size: 10px; color: rgb(68, 68, 68); white-space: nowrap; direction: ltr; text-align: right; vertical-align: middle; display: inline-block;')
+									a(target='_new', title='Report errors in the road map or imagery to Google', style='font-family: Roboto,Arial,sans-serif; font-size: 10px; color: rgb(68, 68, 68); text-decoration: none; position: relative;', href='https://www.google.com/maps/@33.1379817,-109.3641172,10z/data=!10m1!1e1!12b1?source=apiv3&rapsrc=apiv3') Report a map error
+							.gmnoprint.gm-bundled-control.gm-bundled-control-on-bottom(style='margin: 10px; -moz-user-select: none; position: absolute; bottom: 107px; right: 28px;', draggable='false', controlwidth='28', controlheight='93')
+								.gmnoprint(style='position: absolute; left: 0px; top: 38px;', controlwidth='28', controlheight='55')
+									div(draggable='false', style='-moz-user-select: none; box-shadow: 0px 1px 4px -1px rgba(0, 0, 0, 0.3); border-radius: 2px; cursor: pointer; background-color: rgb(255, 255, 255); width: 28px; height: 55px;')
+										div(title='Zoom in', style='position: relative; width: 28px; height: 27px; left: 0px; top: 0px;')
+											div(style='overflow: hidden; position: absolute; width: 15px; height: 15px; left: 7px; top: 6px;')
+												img(style='position: absolute; left: 0px; top: 0px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none; width: 120px; height: 54px;', src='http://maps.gstatic.com/mapfiles/api-3/images/tmapctrl.png', draggable='false')
+										div(style='position: relative; overflow: hidden; width: 67%; height: 1px; left: 16%; background-color: rgb(230, 230, 230); top: 0px;')
+										div(title='Zoom out', style='position: relative; width: 28px; height: 27px; left: 0px; top: 0px;')
+											div(style='overflow: hidden; position: absolute; width: 15px; height: 15px; left: 7px; top: 6px;')
+												img(style='position: absolute; left: 0px; top: -15px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none; width: 120px; height: 54px;', src='http://maps.gstatic.com/mapfiles/api-3/images/tmapctrl.png', draggable='false')
+								.gm-svpc(style='background-color: rgb(255, 255, 255); box-shadow: 0px 1px 4px -1px rgba(0, 0, 0, 0.3); border-radius: 2px; width: 28px; height: 28px; cursor: url("http://maps.gstatic.com/mapfiles/openhand_8_8.cur"), default; position: absolute; left: 0px; top: 0px;', controlwidth='28', controlheight='28')
+									div(style='position: absolute; left: 1px; top: 1px;')
+									div(style='position: absolute; left: 1px; top: 1px;')
+										div(style='width: 26px; height: 26px; overflow: hidden; position: absolute; left: 0px; top: 0px;', aria-label='Street View Pegman Control')
+											img(style='position: absolute; left: -147px; top: -26px; width: 215px; height: 835px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;', src='http://maps.gstatic.com/mapfiles/api-3/images/cb_scout5.png', draggable='false')
+										div(style='width: 26px; height: 26px; overflow: hidden; position: absolute; left: 0px; top: 0px; visibility: hidden;', aria-label='Pegman is on top of the Map')
+											img(style='position: absolute; left: -147px; top: -52px; width: 215px; height: 835px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;', src='http://maps.gstatic.com/mapfiles/api-3/images/cb_scout5.png', draggable='false')
+										div(style='width: 26px; height: 26px; overflow: hidden; position: absolute; left: 0px; top: 0px; visibility: hidden;', aria-label='Street View Pegman Control')
+											img(style='position: absolute; left: -147px; top: -78px; width: 215px; height: 835px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;', src='http://maps.gstatic.com/mapfiles/api-3/images/cb_scout5.png', draggable='false')
+								.gmnoprint(controlwidth='28', controlheight='0', style='display: none; position: absolute;')
+									div(style='width: 28px; height: 28px; overflow: hidden; position: absolute; border-radius: 2px; box-shadow: 0px 1px 4px -1px rgba(0, 0, 0, 0.3); cursor: pointer; background-color: rgb(255, 255, 255); display: none;', title='Rotate map 90 degrees')
+										img(style='position: absolute; left: -141px; top: 6px; width: 170px; height: 54px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;', src='http://maps.gstatic.com/mapfiles/api-3/images/tmapctrl4.png', draggable='false')
+									.gm-tilt(style='width: 28px; height: 28px; overflow: hidden; position: absolute; border-radius: 2px; box-shadow: 0px 1px 4px -1px rgba(0, 0, 0, 0.3); top: 0px; cursor: pointer; background-color: rgb(255, 255, 255);')
+										img(style='position: absolute; left: -141px; top: -13px; width: 170px; height: 54px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;', src='http://maps.gstatic.com/mapfiles/api-3/images/tmapctrl4.png', draggable='false')
+							.gmnoprint(style='margin: 10px; z-index: 0; position: absolute; cursor: pointer; left: 0px; top: 0px;')
+								.gm-style-mtc(style='float: left;')
+									div(style='direction: ltr; overflow: hidden; text-align: center; position: relative; color: rgb(0, 0, 0); font-family: Roboto,Arial,sans-serif; -moz-user-select: none; font-size: 11px; background-color: rgb(255, 255, 255); padding: 8px; border-bottom-left-radius: 2px; border-top-left-radius: 2px; background-clip: padding-box; box-shadow: 0px 1px 4px -1px rgba(0, 0, 0, 0.3); min-width: 22px; font-weight: 500;', draggable='false', title='Show street map') Map
+									div(style='background-color: white; z-index: -1; padding: 2px; border-bottom-left-radius: 2px; border-bottom-right-radius: 2px; box-shadow: 0px 1px 4px -1px rgba(0, 0, 0, 0.3); position: absolute; left: 0px; top: 29px; text-align: left; display: none;')
+										div(style='color: rgb(0, 0, 0); font-family: Roboto,Arial,sans-serif; -moz-user-select: none; font-size: 11px; background-color: rgb(255, 255, 255); padding: 6px 8px 6px 6px; direction: ltr; text-align: left; white-space: nowrap;', draggable='false', title='Show street map with terrain')
+											span(role='checkbox', style='box-sizing: border-box; position: relative; line-height: 0; font-size: 0px; margin: 0px 5px 0px 0px; display: inline-block; background-color: rgb(255, 255, 255); border: 1px solid rgb(198, 198, 198); border-radius: 1px; width: 13px; height: 13px; vertical-align: middle;')
+												div(style='position: absolute; left: 1px; top: -2px; width: 13px; height: 11px; overflow: hidden; display: none;')
+													img(style='position: absolute; left: -52px; top: -44px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none; width: 68px; height: 67px;', src='http://maps.gstatic.com/mapfiles/mv/imgs8.png', draggable='false')
+											label(style='vertical-align: middle; cursor: pointer;') Terrain
+								.gm-style-mtc(style='float: left;')
+									div(style='direction: ltr; overflow: hidden; text-align: center; position: relative; color: rgb(86, 86, 86); font-family: Roboto,Arial,sans-serif; -moz-user-select: none; font-size: 11px; background-color: rgb(255, 255, 255); padding: 8px; border-bottom-right-radius: 2px; border-top-right-radius: 2px; background-clip: padding-box; box-shadow: 0px 1px 4px -1px rgba(0, 0, 0, 0.3); border-left: 0px none; min-width: 42px;', draggable='false', title='Show satellite imagery') Satellite
+									div(style='background-color: white; z-index: -1; padding: 2px; border-bottom-left-radius: 2px; border-bottom-right-radius: 2px; box-shadow: 0px 1px 4px -1px rgba(0, 0, 0, 0.3); position: absolute; right: 0px; top: 29px; text-align: left; display: none;')
+										div(style='color: rgb(0, 0, 0); font-family: Roboto,Arial,sans-serif; -moz-user-select: none; font-size: 11px; background-color: rgb(255, 255, 255); padding: 6px 8px 6px 6px; direction: ltr; text-align: left; white-space: nowrap;', draggable='false', title='Show imagery with street names')
+											span(role='checkbox', style='box-sizing: border-box; position: relative; line-height: 0; font-size: 0px; margin: 0px 5px 0px 0px; display: inline-block; background-color: rgb(255, 255, 255); border: 1px solid rgb(198, 198, 198); border-radius: 1px; width: 13px; height: 13px; vertical-align: middle;')
+												div(style='position: absolute; left: 1px; top: -2px; width: 13px; height: 11px; overflow: hidden;')
+													img(style='position: absolute; left: -52px; top: -44px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none; width: 68px; height: 67px;', src='http://maps.gstatic.com/mapfiles/mv/imgs8.png', draggable='false')
+											label(style='vertical-align: middle; cursor: pointer;') Labels
+			.ceremony-page-location-container-left.ceremony-page-location-container-with-map
+				span
+					span.cer-location City Auditorium, Las Vegas
+				span
+					span.cer-date Wednesday, 1 January, 2014
+				span
+					span.cer-time 10pm - 2am
+			.clearfix
+		.entry-content.row-fluid
+			p(style='text-align: justify;')
+				| A wedding is the ceremony in which two people are united in marriage or a similar institution. Wedding traditions and customs vary greatly between cultures, ethnic groups, religions, countries, and social classes. Most wedding ceremonies involve an exchange of wedding vows by the couple, presentation of a gift (offering, ring(s), symbolic item, flowers, money), and a public proclamation of marriage by an authority figure or leader. Special wedding garments are often worn, and the ceremony is sometimes followed by a wedding reception. Music, poetry, prayers or readings from religious texts or literature are also commonly incorporated into the ceremony. A wedding is the ceremony in which two people are united in marriage or a similar institution.
+			p(style='text-align: justify;')
+				| Wedding traditions and customs vary greatly between cultures, ethnic groups, religions, countries, and social classes. Most wedding ceremonies involve an exchange of wedding vows by the couple, presentation of a gift (offering, ring(s), symbolic item, flowers, money), and a public proclamation of marriage by an authority figure or leader. Special wedding garments are often worn, and the ceremony is sometimes followed by a wedding reception. Music, poetry, prayers or readings from religious texts or literature are also commonly incorporated into the ceremony.
+		
+
+	//- #lightblue.row
+	//- 		.col-md-12
+	//- 			.panel.panel-info.coupon
+	//- 				#head.panel-heading
+	//- 					#title.panel-title.text-center
+	//- 						span.hidden-xs {name}Automatic Transmission Service{/name}
+	//- 						span.visible-xs {name}Automatic Transmission Service{/}
+	//- 				.panel-body
+	//- 					//- img.coupon-img.img-rounded(src='{image}http://i.imgur.com/e07tg8R.png{/}' style="width:100%")
+	//- 					img(alt='{$name}' src='{$image}' style="width:100%")
+	//- 					.col-md-12
+	//- 						p.disclosure
+	//- 							| {description}Using Genuine Oil Filter and
+	//- 							| multigrade oil up to vehicle specification. Lube as
+	//- 							| necessary. Ester Oil or Synthetic available at additional
+	//- 							| cost. Excludes hazardous waste fee, tax and shop supplies,
+	//- 							| where applicable. Offer not valid with previous charges or
+	//- 							| with any other offers or specials. Customer must offer at
+	//- 							| time of write-up. No cash value.{/}
+	//- 				//- .xepan-component.xepan-page-wrapper.ui-sortable(xepan-component="xepan/cms/Tool_TemplateContentRegion" emptytext="Page Content" class="" style="min-height: 200px;"){$Content}					
+	//- 				//- .xepan-component.xepan-sortable-component.xepan-cms-container.ui-sortable(xepan-component="xepan/cms/Tool_Container" emptytext="Container" style="width:85%;margin:0 auto;")
+	//- 				//- .panel-footer
+	//- 				//- 	.coupon-code
+	//- 				//- 		| Mobile No: 000000000
+	//- 				//- 		span.print
+	//- 				//- 			a.btn.btn-link(href='#')
+	//- 				//- 				i.fa.fa-lg.fa-print
+	//- 				//- 				|  Contact
+	//- 					//- .exp Expires: Sep 30, 2016
+	//- 				{$Content}
+style.
+	.page-title {
+		background: #f0f0f0 none repeat scroll 0 0;
+		max-width: 1920px;
+		width: 100%;
+	}
+	.page-title .page-title-cover {
+		bottom: 0;
+		left: 0;
+		position: absolute;
+		text-align: center;
+		width: 100%;
+	}
+
+	.page-title h1 {
+		background: #c44b6d none repeat scroll 0 0;
+		color: #fff;
+		display: inline-block;
+		font-size: 48px;
+		margin: 0;
+		padding: 25px 100px;
+		text-transform: uppercase;
+	}
