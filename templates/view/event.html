@@ -1,9 +1,9 @@
 
-<div id="{$_name}" style="width:100%" class="container">
+<div id="{$_name}" style="width:100%" class="container samaj-events">
   {$header}
   {$not_found_message}	
   <ul class="event-list row">{rows}{row}
-    <li class="col-xs-12 col-sm-12 col-md-5 col-lg-5">
+    <li class=" col-xs-12 col-sm-12 col-md-{col}5{/} col-lg-{col}5{/}">
       <time datetime="{$from_date}"><span class="day">{$day}</span><span class="month">{$month}</span><span class="year">{$year}</span>
       </time>{image_wrapper}<img alt="{$name}" src="{$image}"/>{/image_wrapper}
       <div class="info">

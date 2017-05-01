@@ -1,9 +1,9 @@
-.container(id='{$_name}' style="width:100%")
+.container.samaj-events(id='{$_name}' style="width:100%")
 	{$header}
 	{$not_found_message}	
 	ul.event-list.row
 		{rows}{row}
-		li.col-xs-12.col-sm-12.col-md-5.col-lg-5
+		li(class=" col-xs-12 col-sm-12 col-md-{col}5{/} col-lg-{col}5{/}")
 			time(datetime='{$from_date}')
 				span.day {$day}
 				span.month {$month}

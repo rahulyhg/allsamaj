@@ -9,6 +9,7 @@ class Tool_Event extends \xepan\cms\View_Tool {
 	public $options=[
 					'show_image'=>'',
 					'detail_url'=>'',
+					'no_of_column'=>' ',
 					'no_of_record'=>10,
 
 	];		
@@ -29,6 +30,11 @@ class Tool_Event extends \xepan\cms\View_Tool {
 		$grid = $this->add('xepan\hr\Grid',null,null,['view/event']);
 		$grid->setModel($m);
 		$grid->addHook('formatRow',function($g){
+			if($this->options['no_of_column']){
+				$g->current_row_html['col'] = $this->options['no_of_column'];
+			}else{
+				$g->current_row_html['col'] = "";
+			}
 			$g->current_row_html['content'] = $g->model['content'];
 			$g->current_row_html['detail_url'] = $g->app->url($this->options['detail_url'],['event_id'=>$g->model->id]);
 			
