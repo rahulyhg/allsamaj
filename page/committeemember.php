@@ -10,7 +10,13 @@ class page_committeemember extends \xepan\base\Page{
 	function init(){
 		parent::init();
 
-		$this->add('xepan\hr\CRUD')->setModel('xavoc\allsamaj\CommitteeMember');
+		$committee_id = $this->app->stickyGET('committee_id');
+		
+		$committee_member = $this->add('xavoc\allsamaj\Model_CommitteeMember');
+		if($committee_id)
+			$committee_member->addCondition('committee_id',$committee_id);
+		$crud = $this->add('xepan\hr\CRUD',null,null,['view/grid/committee-member']);
+		$crud->setModel($committee_member);
 
 	}
 }

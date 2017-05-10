@@ -10,6 +10,6 @@ class page_news extends \xepan\base\Page{
 	function init(){
 		parent::init();
 
-		$this->add('xepan\hr\CRUD')->setModel('xavoc\allsamaj\News');
+		$this->add('xepan\hr\CRUD',null,null,['view/grid/news'])->setModel('xavoc\allsamaj\News');
 	}
 }

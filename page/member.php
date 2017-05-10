@@ -10,6 +10,6 @@ class page_member extends \xepan\base\Page{
 	function init(){
 		parent::init();
 
-		$this->add('xepan\hr\CRUD')->setModel('xavoc\allsamaj\Member');
+		$this->add('xepan\hr\CRUD',null,null,['view/grid/member'])->setModel('xavoc\allsamaj\Member');
 	}
 }

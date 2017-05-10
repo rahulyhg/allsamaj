@@ -35,7 +35,8 @@ class Model_Committee extends \xepan\base\Model_Table{
 		$cmember_model = $this->add('xavoc\allsamaj\Model_CommitteeMember');
 		$cmember_model->addCondition('committee_id',$this->id);
 
-		$crud = $page->add('xepan\hr\CRUD');
+		$crud = $page->add('xepan\hr\CRUD',null,null,['view/grid/committee-member']);
 		$crud->setModel($cmember_model);
 	}
+
 }
