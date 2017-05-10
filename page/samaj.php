@@ -10,6 +10,6 @@ class page_samaj extends \xepan\base\Page{
 	function init(){
 		parent::init();
 
-		$this->add('xepan\hr\CRUD')->setModel('xavoc\allsamaj\Samaj');
+		$this->add('xepan\hr\CRUD',null,null,['view/grid/samajlist'])->setModel('xavoc\allsamaj\Samaj');
 	}
 }

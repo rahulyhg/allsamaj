@@ -45,7 +45,7 @@ class Model_Samaj extends \xepan\base\Model_Table {
 		$news_model = $this->add('xavoc\allsamaj\Model_News');
 		$news_model->addCondition('samaj_id',$this->id);
 
-		$crud = $page->add('xepan\hr\CRUD');
+		$crud = $page->add('xepan\hr\CRUD',null,null,['view/grid/news']);
 		$crud->setModel($news_model);
 	}
 
@@ -54,7 +54,7 @@ class Model_Samaj extends \xepan\base\Model_Table {
 		$event_model = $this->add('xavoc\allsamaj\Model_Event');
 		$event_model->addCondition('samaj_id',$this->id);
 
-		$crud = $page->add('xepan\hr\CRUD');
+		$crud = $page->add('xepan\hr\CRUD',null,null,['view/grid/events']);
 		$crud->setModel($event_model);
 	}
 
@@ -72,7 +72,7 @@ class Model_Samaj extends \xepan\base\Model_Table {
 		$member_model = $this->add('xavoc\allsamaj\Model_Member');
 		$member_model->addCondition('samaj_id',$this->id);
 
-		$crud = $page->add('xepan\hr\CRUD');
+		$crud = $page->add('xepan\hr\CRUD',null,null,['view/grid/member']);
 		$crud->setModel($member_model);
 	}
 }
