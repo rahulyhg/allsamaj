@@ -27,7 +27,7 @@ class Tool_Event extends \xepan\cms\View_Tool {
 		// 	return $url;
 		// });
 
-		$grid = $this->add('Grid',null,null,['view/event']);
+		$grid = $this->add('CompleteLister',null,null,['view/event']);
 		$grid->setModel($m);
 		$grid->addHook('formatRow',function($g){
 			if($this->options['no_of_column']){
@@ -55,9 +55,9 @@ class Tool_Event extends \xepan\cms\View_Tool {
 		});
 
 		if($this->options['no_of_record']){
-			// $paginator = $grid->add('Paginator',null,'paginator');
-			// $paginator->setRowsPerPage($this->options['no_of_record']);
-			$grid->addPaginator($this->options['no_of_record']);
+			$paginator = $grid->add('Paginator',null,'Paginator');
+			$paginator->setRowsPerPage($this->options['no_of_record']);
+			// $grid->addPaginator($this->options['no_of_record']);
 
 			// $m->setLimit($this->options['no_of_record']);
 		}
