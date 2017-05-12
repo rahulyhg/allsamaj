@@ -27,7 +27,7 @@ class Tool_Event extends \xepan\cms\View_Tool {
 		// 	return $url;
 		// });
 
-		$grid = $this->add('xepan\hr\Grid',null,null,['view/event']);
+		$grid = $this->add('Grid',null,null,['view/event']);
 		$grid->setModel($m);
 		$grid->addHook('formatRow',function($g){
 			if($this->options['no_of_column']){

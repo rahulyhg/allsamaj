@@ -22,7 +22,7 @@ class Tool_CommitteeMember extends \xepan\cms\View_Tool {
 		if($committee_id)
 			$m->addCondition('committee_id',$committee_id);
 
-		$grid = $this->add('xepan\hr\Grid',null,null,['view/committeemember']);
+		$grid = $this->add('Grid',null,null,['view/committeemember']);
 		$grid->setModel($m);		
 
 
