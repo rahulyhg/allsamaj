@@ -19,7 +19,7 @@ class Tool_Member extends \xepan\cms\View_Tool {
 		if($samaj_id)
 			$m->addCondition('samaj_id',$samaj_id);
 
-		$grid = $this->add('Grid',null,null,['view/member']);
+		$grid = $this->add('CompleteLister',null,null,['view/member']);
 		$grid->setModel($m);
 
 	}
