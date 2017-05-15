@@ -1,0 +1,15 @@
+
+<div id="{$_name}" style=" {$style}" data-awesome-theme="" paginator-position="" class="xepan-component  {$class}"><b contenteditable="true" class="editor"></b>
+  <link rel="stylesheet" type="text/css" href="shared/apps/xavoc/allsamaj/templates/css/awesome/nivo-slider.css"/>
+  <link rel="stylesheet" type="text/css" href="shared/apps/xavoc/allsamaj/templates/css/awesome/themes/light/light.css"/>
+  <link rel="stylesheet" type="text/css" href="shared/apps/xavoc/allsamaj/templates/css/awesome/themes/default/default.css"/>
+  <link rel="stylesheet" type="text/css" href="shared/apps/xavoc/allsamaj/templates/css/awesome/themes/bar/bar.css"/>
+  <link rel="stylesheet" type="text/css" href="shared/apps/xavoc/allsamaj/templates/css/awesome/themes/dark/dark.css"/>{$Content}  
+  <div class="slider-wrapper {theme_css}theme-default{/theme_css}">
+    <div id="slider_{$_name}" class="nivoSlider ">
+      {rows}
+      {row}<img src="{$file}" title="{$tag}" data-thumb="{$file}" alt="" data-transition="{$effects}"/>{/row}
+      {/rows}
+    </div>
+  </div>
+</div>

@@ -15,6 +15,7 @@ class Initiator extends \Controller_Addon {
 
         $m = $this->app->top_menu->addMenu('All Samaj');
         $m->addItem(['All Samaj','icon'=>' fa fa-file-image-o'],'xavoc_allsamaj_samaj');
+        $m->addItem(['Slider','icon'=>' fa fa-file-image-o'],'xavoc_allsamaj_slider');
         // $m->addItem(['News','icon'=>' fa fa-file-image-o'],'xavoc_allsamaj_news');
         // $m->addItem(['Committee','icon'=>' fa fa-file-image-o'],'xavoc_allsamaj_committee');
         // $m->addItem(['Member','icon'=>' fa fa-file-image-o'],'xavoc_allsamaj_member');
@@ -37,6 +38,7 @@ class Initiator extends \Controller_Addon {
         $this->app->exportFrontEndTool('xavoc\allsamaj\Tool_Member','AllSamaj');
         $this->app->exportFrontEndTool('xavoc\allsamaj\Tool_EventDetail','AllSamaj');
         $this->app->exportFrontEndTool('xavoc\allsamaj\Tool_Committee','AllSamaj');
+        $this->app->exportFrontEndTool('xavoc\allsamaj\Tool_AwesomeSlider','AllSamaj');
 
     	return $this;
     }
