@@ -20,6 +20,7 @@ class Model_Samaj extends \xepan\base\Model_Table {
 		$this->add('xepan/filestore/Field_Image',['name'=>'image_id','deref_field'=>'thumb_url']);
 		$this->addField('status')->enum(['Active','InActive'])->defaultValue('Active');
 		$this->addField('description')->type('text');
+		$this->addField('search_string')->type('text')->system(true)->defaultValue(null);
 		
 		$this->hasMany('xavoc\allsamaj\News','samaj_id');
 		$this->hasMany('xavoc\allsamaj\Member','samaj_id');
@@ -32,9 +33,11 @@ class Model_Samaj extends \xepan\base\Model_Table {
 			return $m->refSQL('city_id')->fieldQuery('state');
 		});
 
-		$this->addExpression('search_string')->set(function($m,$q){
-			return $q->expr('CONCAT([0]," ",[1]," ",[2])',[$m->getElement('name'),$m->getElement('city'),$m->getElement('state')]);
-		});
+		$this->addHook('beforeSave',[$this,'updateSearchString']);
+
+		// $this->addExpression('search_string')->set(function($m,$q){
+		// 	return $q->expr('CONCAT([0]," ",[1]," ",[2])',[$m->getElement('name'),$m->getElement('city'),$m->getElement('state')]);
+		// });
 
 
 
@@ -87,5 +90,17 @@ class Model_Samaj extends \xepan\base\Model_Table {
 		// if(!$crud->isEditing()){
 		// 	$crud->grid->js('click')->univ()->newWindow($this->app->url('xavoc_allsamaj_committeemember',['committee_id'=>$c_model->id]),"Committee Member");
 		// }
+	}
+
+	function updateSearchString($m){
+
+		$search_string = ' ';
+		$search_string .=" ". $this['name'];
+		$search_string .=" ". $this['description'];
+		$search_string .=" ". $this['city'];
+		$search_string .=" ". $this['state'];
+
+		$this['search_string'] = $search_string;
+		
 	}
 }

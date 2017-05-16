@@ -16,35 +16,44 @@ class Tool_SamajLister extends \xepan\cms\View_Tool {
 	function init(){
 		parent::init();
 		
-		$fliter_samaj = $this->app->stickyGET('samaj_filter');
-		
+		$filter_samaj = $this->app->stickyGET('search');
 		$samaj_model = $this->add('xavoc\allsamaj\Model_Samaj');
-		if($fliter_samaj)
-			$samaj_model->addCondition('id',$fliter_samaj);
+
+		if($filter_samaj){
+			// $item->addExpression('Relevance')->set('MATCH(search_string) AGAINST ("'.$_GET['search'].'" IN NATURAL LANGUAGE MODE)');
+			$samaj_model->addExpression('Relevance')->set(function($m, $q){
+				return $q->expr('MATCH([0]) AGAINST ("[1]" IN NATURAL LANGUAGE MODE)',[$q->getField('search_string'),$_GET['search']]);
+			});
+			$samaj_model->addCondition('Relevance','>',0);
+	 		$samaj_model->setOrder('Relevance','Desc');
+		}
+		
+		// if($fliter_samaj)
+		// 	$samaj_model->addCondition('id',$fliter_samaj);
 		$view = $this->add('View');
 		$lister = $view->add('CompleteLister',null,null,['view/samajlister']);
 		
-		if($this->options['show_search_bar']){
-			$f = $lister->add('Form',null,'search_form');;
-			$f->setLayout(['view/serchform']);
+		// if($this->options['show_search_bar']){
+		// 	$f = $lister->add('Form',null,'search_form');;
+		// 	$f->setLayout(['view/serchform']);
 
-			$search_samaj = $this->add('xavoc\allsamaj\Model_Samaj',['title_field'=>'search_string']);
-			$s_f = $f->addField('autocomplete\Basic','search');
-			$s_f->setModel($search_samaj);
-			$f->addSubmit(' ')->addClass(' btn btn-default glyphicon  glyphicon-search');
+		// 	$search_samaj = $this->add('xavoc\allsamaj\Model_Samaj',['title_field'=>'search_string']);
+		// 	$s_f = $f->addField('autocomplete\Basic','search');
+		// 	$s_f->setModel($search_samaj);
+		// 	$f->addSubmit(' ')->addClass(' btn btn-default glyphicon  glyphicon-search');
 
-			if($f->isSubmitted()){
-				$view->js()->reload(
-									[
-										'samaj_filter'=>$f['search']
-									]
-								)
-				->execute();
-			}
+		// 	if($f->isSubmitted()){
+		// 		$view->js()->reload(
+		// 							[
+		// 								'samaj_filter'=>$f['search']
+		// 							]
+		// 						)
+		// 		->execute();
+		// 	}
 
-		}else{
-			$lister->template->tryDel('search_form');
-		}	
+		// }else{
+		// 	$lister->template->tryDel('search_form');
+		// }	
 
 		$lister->addHook('formatRow',function($l){
 			if($this->options['no_of_column']){
