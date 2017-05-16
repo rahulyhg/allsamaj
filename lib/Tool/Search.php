@@ -42,7 +42,7 @@ class Tool_Search extends \xepan\cms\View_Tool{
 		// $form = $this->add('Form');
 	   	
 	   	if($this->options['search-form-btn']){
-	   		$f->addSubmit(' ')->addClass(' btn btn-default glyphicon  glyphicon-search');
+	   		$f->addSubmit(' ')->addClass(' btn btn-default fa fa-search');
 	   		if($this->options['search-button-position'] === "before")
 	  	 		$submit_button = $search_field->beforeField()->add('Button');
 	  	 	else
