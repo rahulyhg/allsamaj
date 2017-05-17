@@ -40,6 +40,7 @@ class Initiator extends \Controller_Addon {
         $this->app->exportFrontEndTool('xavoc\allsamaj\Tool_Committee','AllSamaj');
         $this->app->exportFrontEndTool('xavoc\allsamaj\Tool_AwesomeSlider','AllSamaj');
         $this->app->exportFrontEndTool('xavoc\allsamaj\Tool_Search','AllSamaj');
+        $this->app->exportFrontEndTool('xavoc\allsamaj\Tool_Feedback','AllSamaj');
 
     	return $this;
     }

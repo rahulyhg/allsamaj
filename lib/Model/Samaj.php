@@ -26,6 +26,7 @@ class Model_Samaj extends \xepan\base\Model_Table {
 		$this->hasMany('xavoc\allsamaj\Member','samaj_id');
 		$this->hasMany('xavoc\allsamaj\Committee','samaj_id');
 		$this->hasMany('xavoc\allsamaj\Event','samaj_id');
+		$this->hasMany('xavoc\allsamaj\FeedBack','samaj_id');
 
 		$this->add('dynamic_model\Controller_AutoCreator');
 

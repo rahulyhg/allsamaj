@@ -1,0 +1,22 @@
+.xepan-components(id="{$_name}")
+	.jquery-comments
+		.commenting-field.main
+			img.profile-picture.round(src='https://viima-app.s3.amazonaws.com/media/user_profiles/user-icon.png')
+			.textarea-wrapper
+				.textarea.atk-form-row.atk-form-field
+					{$comment}
+				.send.save.highlight-background
+					{$FormButtons}
+		.data-container
+			ul#comment-list.main
+				{rows}{row}
+				li.comment.by-admin(data-id='2')
+					.comment-wrapper
+						img.profile-picture.round(src='https://app.viima.com/static/media/user_profiles/admin-user-icon.png')
+						time(data-original='2015-01-02') {created_at}2/1/2015{/}
+						.wrapper
+							.content
+								{message} Sed posuere interdum sem. Quisque ligula eros ullamcorper quis, lacinia quis facilisis sed sapien. Mauris varius diam vitae arcu.{/}
+				{/}{/}
+
+

@@ -22,6 +22,7 @@ class Model_Event extends \xepan\base\Model_Table {
 		$this->addField('google_url');
 		$this->addField('instagram_url');
 		$this->addField('website_url');
+		$this->hasMany('xavoc\allsamaj\FeedBack','event_id');
 		
 		$this->add('xepan/filestore/Field_Image','image_id');
 
