@@ -35,6 +35,11 @@ class Model_Event extends \xepan\base\Model_Table {
 		$this->addExpression('year')->set(function($m,$q){
 			return $q->expr('YEAR([0])',[$m->getElement('from_date')]);
 		});
+
+		$this->addExpression('comment_count')->set(function($m,$q){
+			return $m->refSQL('xavoc\allsamaj\FeedBack')->count();
+		});
+			
 		$this->is([
 				'name|to_trim|required',
 				'samaj_id|required',

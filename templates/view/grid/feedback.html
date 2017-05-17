@@ -9,36 +9,17 @@
   <div class="main-box-body clearfix table-responsive">
     <table style="width:100%" class="table user-list table-hover footable toggle-circle-filled">{header}
       <thead class="xepan-hover-hand">{cols}{col}
-        <th><span>Category</span></th>
-        <th><span>Title</span></th>
-        <th><span>Image</span></th>
-        <th><span>Content</span></th>
-        <th><span>Date</span></th>
-        <th><span>Website</span></th>
-        <th><span>Facebook</span></th>
-        <th><span>Twitter</span></th>
-        <th><span>Google</span></th>
-        <th><span>Instagram</span></th>
-        <th><span>Total Comment</span></th>
+        <th><span>Created At</span></th>
+        <th><span>Message</span></th>
+        <th><span>Status</span></th>
         <th> </th>{/}{/}
       </thead>{/}
       {$subheader}
       <tbody>{rows}{row}
         <tr data-id="{$id}" class="{$odd_even}">{cols}  
-          <td><span>{$category} </span></td>
-          <td><span>{$name} </span></td>
-          <td><img src=" {$image}"/></td>
-          <td><span>{$content}  </span></td>
-          <td class="text-center"><span>{$from_date} to {$to_date}</span></td>
-          <td><span>{$website_url}  </span></td>
-          <td><span>{$facebook_url}</span></td>
-          <td><span>{$twitter_url}  </span></td>
-          <td><span>{$google_url}    </span></td>
-          <td><span>{$instagram_url}</span></td>
-          <td><a href="?page=xavoc_allsamaj_eventfeedback&amp;event_id={$id}" target="_blank">
-               
-              {$comment_count}    </a></td>
-          <td>{$action}</td>
+          <td><span>{$created_at}</span></td>
+          <td>{$message}  </td>
+          <td><span>{$status}  </span></td>
           <td style="width: 15%;">
             {$edit}
             {$delete}

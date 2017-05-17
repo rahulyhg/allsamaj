@@ -7,7 +7,7 @@ class Model_Samaj extends \xepan\base\Model_Table {
 	public $acl_type="Samaj";
 
 	public $actions= [
-				'Active'=>['view','edit','delete','member_management','manage_news','manage_event','manage_committee','manage_categories','deactivate'],
+				'Active'=>['view','edit','delete','member_management','manage_news','manage_event','manage_committee','manage_categories','deactivate','feedback'],
 				'InActive'=>['view','edit','delete','activate'],
 				];
 
@@ -91,6 +91,15 @@ class Model_Samaj extends \xepan\base\Model_Table {
 		// if(!$crud->isEditing()){
 		// 	$crud->grid->js('click')->univ()->newWindow($this->app->url('xavoc_allsamaj_committeemember',['committee_id'=>$c_model->id]),"Committee Member");
 		// }
+	}
+
+	function page_feedback($page){
+		
+		$c_model = $this->add('xavoc\allsamaj\Model_FeedBack');
+		$c_model->addCondition('samaj_id',$this->id);
+
+		$crud = $page->add('xepan\hr\CRUD',null,null,['view/grid/feedback']);
+		$crud->setModel($c_model);
 	}
 
 	function updateSearchString($m){

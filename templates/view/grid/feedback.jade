@@ -13,31 +13,15 @@
             thead.xepan-hover-hand
                 {cols}{col}
                 //- th
-                //-     span Samaj
+                //-     span Name
                 th
-                    span Category
+                    span Created At
                 th
-                    span Title
-                th
-                    span Image
-                th
-                    span Content
+                    span Message
                 //- th
-                //-     span From Date
+                //-     span Member Count
                 th
-                    span Date
-                th
-                    span Website
-                th
-                    span Facebook
-                th
-                    span Twitter
-                th
-                    span Google
-                th
-                    span Instagram
-                th
-                    span Total Comment
+                    span Status
                 th 
                 {/}{/}
             {/}
@@ -47,35 +31,17 @@
                 {rows}{row}
                 tr(class="{$odd_even}" data-id="{$id}")
                     {cols}  
+                    td
+                      span {$created_at}
                     //- td
-                    //-   span {$samaj}
+                    //-   span {$description}  
                     td
-                      span {$category} 
+                        {$message}  
+                      //- a.do-view-committee-member(href='#' data-id="{$id}")
                     td
-                      span {$name} 
-                    td
-                      img(src=" {$image}") 
-                    td
-                      span {$content}  
+                      span {$status}  
                     //- td
-                    //-   span {$from_date}  
-                    td.text-center
-                      span {$from_date} to {$to_date}
-                    td
-                      span {$website_url}  
-                    td
-                      span {$facebook_url}
-                    td
-                      span {$twitter_url}  
-                    td
-                      span {$google_url}    
-                    td
-                      span {$instagram_url}
-                    td
-                      a(href="?page=xavoc_allsamaj_eventfeedback&event_id={$id}" target="_blank") 
-                        {$comment_count}    
-                    td
-                        {$action}
+                        //- {$action}
                     td(style="width: 15%;")
                         {$edit}
                         {$delete}
