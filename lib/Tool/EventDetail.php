@@ -23,6 +23,14 @@ class Tool_EventDetail extends \xepan\cms\View_Tool {
 
 	}
 
+	function setModel($model){
+		$m =  parent::setModel($model);
+		
+		$this->template->trySetHtml('description',$model['content']);
+
+		return $m;
+	}
+
 	function defaultTemplate(){
 		return ['view/eventdetail'];
 	}
