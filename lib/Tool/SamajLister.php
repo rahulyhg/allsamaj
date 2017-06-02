@@ -6,10 +6,11 @@ namespace xavoc\allsamaj;
 class Tool_SamajLister extends \xepan\cms\View_Tool {
 	public $options=[
 					'show_search_bar'=>true,
-					'no_of_record'=>10,
-					'no_of_column'=>' ',
-					'detail_url_page'=>null
-
+					'no_of_record_on_page'=>10,
+					'no_of_column'=>4,
+					'detail_url_page'=>null,
+					'include_featured_samaj_also'=>false,
+					'show_city_list'=>'udaipur'
 	];
 
 
@@ -18,6 +19,14 @@ class Tool_SamajLister extends \xepan\cms\View_Tool {
 		
 		$filter_samaj = $this->app->stickyGET('search');
 		$samaj_model = $this->add('xavoc\allsamaj\Model_Samaj');
+
+		$order_by="id desc";
+		if($this->options['include_featured_samaj_also']==='yes'){
+			$order_by = "is_featured desc, id desc";
+		}
+		$samaj_model->addCondition('status','Active');
+
+		$samaj_model->setOrder($order_by);
 
 		if($filter_samaj){
 			// $item->addExpression('Relevance')->set('MATCH(search_string) AGAINST ("'.$_GET['search'].'" IN NATURAL LANGUAGE MODE)');
@@ -33,28 +42,6 @@ class Tool_SamajLister extends \xepan\cms\View_Tool {
 		$view = $this->add('View');
 		$lister = $view->add('CompleteLister',null,null,['view/samajlister']);
 		
-		// if($this->options['show_search_bar']){
-		// 	$f = $lister->add('Form',null,'search_form');;
-		// 	$f->setLayout(['view/serchform']);
-
-		// 	$search_samaj = $this->add('xavoc\allsamaj\Model_Samaj',['title_field'=>'search_string']);
-		// 	$s_f = $f->addField('autocomplete\Basic','search');
-		// 	$s_f->setModel($search_samaj);
-		// 	$f->addSubmit(' ')->addClass(' btn btn-default glyphicon  glyphicon-search');
-
-		// 	if($f->isSubmitted()){
-		// 		$view->js()->reload(
-		// 							[
-		// 								'samaj_filter'=>$f['search']
-		// 							]
-		// 						)
-		// 		->execute();
-		// 	}
-
-		// }else{
-		// 	$lister->template->tryDel('search_form');
-		// }	
-
 		$lister->addHook('formatRow',function($l){
 			if($this->options['no_of_column']){
 				$l->current_row_html['col'] = $this->options['no_of_column'];
@@ -69,9 +56,9 @@ class Tool_SamajLister extends \xepan\cms\View_Tool {
 
 		$lister->setModel($samaj_model);
 
-		if($this->options['no_of_record']){
+		if($this->options['no_of_record_on_page']){
 			$paginator = $lister->add('Paginator',null,'paginator');
-			$paginator->setRowsPerPage($this->options['no_of_record']);
+			$paginator->setRowsPerPage($this->options['no_of_record_on_page']);
 
 			// $samaj_model->setLimit($this->options['no_of_record']);
 		}

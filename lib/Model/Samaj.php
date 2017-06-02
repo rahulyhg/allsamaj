@@ -21,6 +21,7 @@ class Model_Samaj extends \xepan\base\Model_Table {
 		$this->addField('status')->enum(['Active','InActive'])->defaultValue('Active');
 		$this->addField('description')->type('text');
 		$this->addField('search_string')->type('text')->system(true)->defaultValue(null);
+		$this->addField('is_featured')->type('boolean')->defaultValue(false);
 		
 		$this->hasMany('xavoc\allsamaj\News','samaj_id');
 		$this->hasMany('xavoc\allsamaj\Member','samaj_id');
